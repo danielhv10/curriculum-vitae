@@ -1,0 +1,344 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+
+\moderncvcolor{blue}      
+
+
+% color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}
+%\usepackage{fontawesome}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+
+\usepackage[colorlinks=true]{hyperref}
+
+
+
+
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\usepackage{multicol}
+
+
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\usepackage{import}
+
+% personal data
+\name{Daniel}{Hernández Vicente}
+% \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+%\address{Dept. of Computer Engineering, Universitat Politècnica de València, 46022 Valencia}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+% \phone[mobile]{909-839-3097}                   % optional, remove / comment the line if not wanted
+% \phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+% \email{xpan1@swarthmore.edu}                               % optional, remove / comment the line if not wanted
+% \homepage{shawnpan.me}                         % optional, remove / comment the line if not wanted
+% \extrainfo{}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+  
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #2}
+  \end{tabular}
+  \ifx&#7&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#7%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvproject}[4][.25em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #3}
+  \end{tabular}
+  \ifx&#4
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvcertificate}[4][.25em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    { #2}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #3}
+  \end{tabular}
+  \ifx&#4
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\cvref}[3][.25em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \ifx&#3
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#3%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+  
+\newcommand{\comment}[1]{}
+
+\setlength{\tabcolsep}{12pt}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\vspace*{-15mm}
+
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ \\\faMobile\enspace +(34) 696 149 937 & \faEnvelopeO\enspace daniel.hernandez.vicente@gmail.com &  \faLinkedin\enspace \href{https://www.linkedin.com/in/danielhv/}{in/danielhv}
+\end{tabular}
+\end{center}
+
+\vspace*{0.5mm}
+
+\comment{
+\section{CAREER OBJECTIVE}{
+ {\begin{itemize}
+    \item I am interested and looking forward to involve in \textbf{Real World Projects}.
+    \item I want to work with a team where I can apply my knowledge and gain practical and professional
+experience.
+\item \textbf Currently seeking a project in the field of my interest – \textbf{AI}, \textbf{Data Science}, \textbf{Deep Learning} and \textbf{ Machine Learning}.
+
+  \end{itemize}
+}
+}
+}
+
+\section{WORK EXPERIENCE}
+
+{\customcventry{May 2022 -- Present}{AI Technical Lead}{Sciling SL}{Valencia, Spain}{}{}
+\begin{itemize}
+    \item Leadership of \href{https://www.jotty.ai}{jotty.ai} platform development
+    \item Development of a generative model to recreate shadows in e-commerce products.
+    \item Research and development of techniques to solve computer vision problems using machine learning techniques.
+  \end{itemize}
+}
+\vspace{3mm}
+
+{\customcventry{Sep 2020 -- May 2022}{Researcher}{Polytechnic University of Valencia (UPV)}{Valencia, Spain}{}{}
+\begin{itemize}
+    \item  Development of high performance IOT infrastructures against climate change based on artificial intelligence.
+    \item  Solutions for efficient vehicle traffic management.
+  \end{itemize}
+}
+\vspace{3mm}
+{\customcventry{Jan 2019 -- Apr 2020}{Data engineer}{Catholic University Saint Anthony (UCAM)}{Murcia, Spain}{}{}
+{\begin{itemize}
+    \item Design and development of a real-time analysis infrastructure for soft sensor data.
+\end{itemize}}}
+
+\vspace{3mm}
+
+{\customcventry{Jul 2015 -- Jan 2016}{Software engineer}{ElevenPaths (Telefónica)}{Málaga, Spain}{}{}
+{\begin{itemize}
+    \item Development of proof-of-concepts in the form of functional prototypes in the field of IT security.
+\end{itemize}}}
+
+\vspace{3mm}
+
+{\customcventry{Mar 2015 -- Jun 2015}{Developer internship}{CESIE}{Palermo, Italy}{}{}}
+
+
+
+
+\section{EDUCATION}
+
+{\customcventry{Feb 2020 -- FEB 2023}{PhD}{Polytechnic University of Valencia (UPV)}{Valencia, Spain}{}{}
+
+{\begin{itemize}
+    \item \textbf{Thesis}: Analysis design and implementation of artificial intelligence techniques in edge computing environments.
+  \end{itemize}}
+}
+
+\vspace{3mm}
+
+{\customcventry{Oct 2018 -- Feb 2020}{Master's Degree in Massive Data Analysis Technologies}{University of Murcia / University of Santiago de Compostela }{Murcia and Santiago, Spain}{}{}{\begin{itemize}
+    \item \textbf{TFM}: Hopper: distributed task scheduling framework based in Apache Zooekeper.
+  \end{itemize}}}
+\vspace{3mm}
+
+{\customcventry{Oct 2015 -- Sept 2018}{Computer engineering degree}{Catholic University Saint Anthony (UCAM)}{Murcia, Spain}{}{}{\begin{itemize}
+    \item Mention in information technologies.
+    \item Mention in software engineering.
+  \end{itemize}}}
+
+
+\section{ADVANCED TECHNICAL SKILLS \& KNOWLEDGE AREAS}
+{\begin{itemize}
+    \item Programming Languages: \textbf{Python}, \textbf{C}, \textbf{Java}, \textbf{Javascript}
+    \item Deep Learning frameworks: \textbf{Pytorch}, \textbf{Tensorflow}
+    \item Machine Learning frameworks: \textbf{Scikit-learn}, \textbf{Pandas}, \textbf{Numpy}
+    \item Big Data frameworks: \textbf{Apache Kafka}, \textbf{Apache Storm}, \textbf{Spark}, \textbf{Zookeeper}
+    \item Databases: \textbf{SQL} (MySQL, SQLite), \textbf{noSQL} (MongoDB)
+    \item Cloud Computing: \textbf{Kubernentes}, \textbf{AWS} (Lambda, DynamoDB, cloudFormation, SAM )
+    \item Developer Tools \textbf{Git}, \textbf{Docker}
+  \end{itemize}
+}
+  
+\section{PUBLICATIONS}
+
+\customcvproject{AI-enabled autonomous drones for fast climate change crisis assessment}{19 Jul 2021}
+  {\href{https://ieeexplore.ieee.org/document/9490639/}{IEEE Internet of Things Journal}}
+  
+\customcvproject{Flood detection and mapping through UAV-based image sensing and processing}{4 Jan 2022}
+  {\href{https://www.mdpi.com/2072-4292/14/1/223}{Remote sensing}}
+
+\customcvproject{Assignment and Take-Off Approaches for Large-Scale Autonomous UAV Swarms}{22 Feb 2023}
+  {\href{https://ieeexplore.ieee.org/abstract/document/10049400}{IEEE Transactions}}
+  
+\customcvproject{LADEA: A Software Infrastructure for Audio Delivery and Analytics}{15 Dec 2021}
+  {\href{https://link.springer.com/article/10.1007/s11036-021-01747-z}{Springer}}
+  
+\customcvproject{The Kuhn-Munkres algorithm for efficient vertical takeoff of UAV swarms}{15 Jun 2021}
+    {\href{https://ieeexplore.ieee.org/document/9448873}{IEEE Conference on Vehicular Technology (VTC)}}
+    
+\customcvproject{BAUSPACE: A Scalable Infrastructure for Soft Sensors Development}{13 Jul 2018}
+    {\href{https://dl.acm.org/citation.cfm?id=3229710.3229744}{Proceedings of the 47th International Conference on Parallel Processing Companion}}
+
+\section{Certificates}
+
+\begin{itemize}
+    \item \customcvcertificate{\textbf{Scrum Master} \href{https://scrummanager.com/website/c/profile/member.php?id=40977}{\small{Credential ID: 40977l}}}{2022}{Scrum Manager}
+    
+    \item \customcvcertificate{\textbf{B2 First}}{2022}{Cambridge Assessment English}
+
+     \item \customcvcertificate{\textbf{TensorFlow Developer Certificate} \href{https://www.credential.net/d3e19d04-5fce-4840-a249-7dc69bc18b70}{\small{Credential ID: 60651446}}}{2022}{TensorFlow Certificate Program}
+    
+    \item \customcvcertificate{\textbf{Deep Learning Specialization }\href{https://www.coursera.org/account/accomplishments/specialization/certificate/Z2N547E35R57}{\small{Credential ID: Z2N547E35R57}}}{2022}{Google | Coursera}
+
+    \item \customcvcertificate{\textbf{Neural Networks and Deep Learning }\href{https://www.coursera.org/account/accomplishments/certificate/87R5U5VWE5CH}{\small{Credential ID: 87R5U5VWE5CH}}}{2022}{Google | Coursera}
+    
+
+    \item \customcvcertificate{\textbf{Convolutional Neural Networks }\href{https://www.coursera.org/account/accomplishments/certificate/JJY7ARKVBUCJ}{\small{Credential ID: JJY7ARKVBUCJ}}}{2022}{Google | Coursera}
+
+    \item \customcvcertificate{\textbf{Improving Deep Neural Networks }\href{https://www.coursera.org/account/accomplishments/certificate/4RQNAJEVLAW3}{\small{Credential ID: 4RQNAJEVLAW3}}}{2022}{Google | Coursera}
+
+    \item \customcvcertificate{\textbf{Structuring Machine Learning Projects }\href{https://www.coursera.org/account/accomplishments/certificate/JBGML2CL937Z}{\small{Credential ID: JBGML2CL937Z}}}{2022}{Google | Coursera}
+
+    \item \customcvcertificate{\textbf{ Sequence Models }\href{https://www.coursera.org/account/accomplishments/certificate/Y25EDNLUPSLR}{\small{Credential ID: Y25EDNLUPSLR}}}{2022}{Google | Coursera}
+    
+    
+\end{itemize}
+
+
+
+
+
+
+\comment{
+\section{PROFESSIONAL QUALIFICATION}
+{\begin{itemize}
+    \item \textbf{Data structures and Algorithm}
+    \item \textbf{PCB designing} in Altium and making complete circuit
+    \item \textbf{Digital circuit design} (tools – DE 2-115 FPGA,Verilog , Quartus , Modelsim Altera)
+    \item \textbf{Knowledge of processor architecture}
+  \end{itemize}}
+}
+
+\section{LANGUAGE}
+
+{\begin{itemize}
+    \item {\textbf{Spanish} [native]}
+    \item {\textbf{English} [fluent]}
+    \item {\textbf{Italian} [trainee]} 
+  \end{itemize}}
+    
+
+  
+\section{PROJECTS}
+
+{\customcvproject{Identid.me}{Jul 2020 – Dec 2021}
+{\begin{itemize}
+  \item \href{https://identid.me}{identid.me} wants to help you get the job of your dreams, how? By helping you create a portfolio that makes you stand out from the crowd in less than 5 minutes.
+\end{itemize}
+}
+}
+
+{\customcvproject{Urlcast}{May 2021 – Jun 2021}
+  {\begin{itemize}
+    \item Schedule your links with \href{https://urlcast.io}{urlcast.io} to be released at a time of your choice and share it to keep your audience engaged.
+  \end{itemize}
+  }
+}
+
+{\customcvproject{Bauspace}{Mar 2017 – Apr 2020}
+  {\begin{itemize}
+    \item A distributed and modular framework to develop soft sensors in a scalable manner and transparently to the cloud provider.
+  \end{itemize}
+  }
+}
+
+{\customcvproject{Hopper}{Sept 2018 – Mar 2019}
+  {\begin{itemize}
+    \item Distributed and fail-safe framework for the execution of applications using the same executable to perform multiple actions.
+  \end{itemize}
+  }
+}
+\end{document}
+
+
+%% end of file `template.tex'.
